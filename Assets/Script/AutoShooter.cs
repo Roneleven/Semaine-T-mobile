@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
 public class AutoShooterWithMovement : MonoBehaviour
@@ -11,6 +12,7 @@ public class AutoShooterWithMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float fireRate = 0.5f; // Adjust the fire rate as needed
     private float fireCooldown = 0f;
+    public InputActionReference moveActionToUse;
 
     void Update()
     {
@@ -39,10 +41,8 @@ public class AutoShooterWithMovement : MonoBehaviour
 
     void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontal, 0f, vertical) * moveSpeed * Time.deltaTime;
+        Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>().normalized;
+        Vector3 movement = new Vector3(moveDirection.x, 0f, moveDirection.y) * moveSpeed * Time.deltaTime;
         transform.Translate(movement, Space.World);
     }
 
