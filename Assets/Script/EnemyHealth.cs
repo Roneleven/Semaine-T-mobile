@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -5,25 +6,34 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
+    // Event for notifying enemy destruction
+    public event Action OnEnemyDestroyed;
+
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damageAmount;
+        currentHealth -= damage;
 
-        // Check if the enemy's health has reached zero
         if (currentHealth <= 0)
         {
-            Die();
+            // Invoke the event when the enemy is destroyed
+            NotifyEnemyDestroyed();
+
+            // Perform other destruction logic if needed
+            Destroy(gameObject);
         }
     }
 
-    void Die()
+    void NotifyEnemyDestroyed()
     {
-        // Add any death behavior here (e.g., play death animation, drop items, etc.)
-        Destroy(gameObject);
+        // Invoked when the enemy is destroyed
+        if (OnEnemyDestroyed != null)
+        {
+            OnEnemyDestroyed.Invoke();
+        }
     }
 }

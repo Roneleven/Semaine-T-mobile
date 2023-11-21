@@ -23,8 +23,6 @@ public class BulletController : MonoBehaviour
     {
         // Check if the collided object has an EnemyHealth component
         EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        Debug.Log("Collision detected with " + collision.gameObject.name);
-
         if (enemyHealth != null)
         {
             // Apply damage to the enemy
