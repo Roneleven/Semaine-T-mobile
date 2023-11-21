@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LD_Rendu.unity
     guid: 2751d3e9e8c23b64e9932952efdaa338
   m_configObjects: {}

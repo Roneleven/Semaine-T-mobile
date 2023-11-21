@@ -1113,6 +1113,14 @@ PrefabInstance:
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: shootingRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 948435638720028995, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_Name
       value: Player
