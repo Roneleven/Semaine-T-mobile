@@ -1,0 +1,34 @@
+{
+    "name": "Tactile",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "3bcbbc92-01ae-466a-bf05-077e09840b4a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "cb3977ec-0b1d-4dd5-84da-b9a9427cca25",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "216cb299-1978-475d-b165-851cad94bb44",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

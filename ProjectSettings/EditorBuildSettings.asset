@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LD_Rendu.unity
     guid: 2751d3e9e8c23b64e9932952efdaa338
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: ed59a49ef9f82e14f879a6b1d3927403
+  - enabled: 1
+    path: Assets/Scenes/Main_Menu.unity
+    guid: 142223cb10d42be40a6fb7aa596b33c6
   m_configObjects: {}
