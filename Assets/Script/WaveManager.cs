@@ -7,8 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public int numberOfWaves;
     public int totalEnemies;
     public float timeBetweenWaves;
-    public GameObject enemyPrefab;
-
+    public List<GameObject> enemyPrefabs; // List of enemy prefabs to choose from
     public List<Transform> spawnPoints;
 
     private void Start()
@@ -34,7 +33,9 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < Mathf.Min(enemiesPerSpawner, numberOfEnemies); i++)
             {
-                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                // Choose a random enemy prefab from the list
+                GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+                Instantiate(selectedEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
                 numberOfEnemies--;
             }
         }

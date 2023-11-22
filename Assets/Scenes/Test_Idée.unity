@@ -3501,7 +3501,9 @@ MonoBehaviour:
   numberOfWaves: 3
   totalEnemies: 5
   timeBetweenWaves: 5
-  enemyPrefab: {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
+  enemyPrefabs:
+  - {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
+  - {fileID: 3073768577908766361, guid: 6399e7948593c2741a47c21af3d48f01, type: 3}
   spawnPoints:
   - {fileID: 1159156437}
   - {fileID: 642609200}
