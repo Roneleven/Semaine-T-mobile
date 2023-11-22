@@ -34,13 +34,14 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("bad") || !iframe)
+        if (other.CompareTag("bad") || !iframe)
         {
             health -= 1;
             iframe = true;
             Cooldown();
         }
     }
+
 
     public void Cooldown()
     {
