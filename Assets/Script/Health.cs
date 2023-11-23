@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("bad") || !iframe)
+        if (CompareTag("Enemy") || !iframe)
         {
             health -= 1;
             iframe = true;
