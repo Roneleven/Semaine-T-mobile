@@ -1624,10 +1624,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &163106483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8025,7 +8025,7 @@ PrefabInstance:
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: rb
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 161931713}
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: fireRate
       value: 3
@@ -8064,7 +8064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6129329449775911505, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6175224340894676963, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_Layer
