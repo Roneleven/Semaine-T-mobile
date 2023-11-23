@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BonusSpawn : MonoBehaviour
 {
-    private int bad;
-    private Health healthScript;
+    public GameObject deathParticle;
     public GameObject hP_up;
     public GameObject speedup;
     public GameObject shootup;
@@ -25,6 +24,11 @@ public class BonusSpawn : MonoBehaviour
             // Use the position of the last killed enemy as the spawn position
             Gamble(lastEnemyDeathPosition);
         }
+    }
+
+    public void Splat(Vector3 spawnPosition)
+    {
+        Instantiate(deathParticle, spawnPosition, Quaternion.identity);
     }
 
     // Modify the Gamble method to accept a Vector3 parameter for the position
@@ -73,6 +77,7 @@ public class BonusSpawn : MonoBehaviour
     private void HandleEnemyDestroyed(Transform enemyTransform, Vector3 deathPosition)
     {
         lastEnemyDeathPosition = deathPosition;
+        Splat(lastEnemyDeathPosition);
     }
 }
 

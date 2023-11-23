@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8181937639633056184}
+  - component: {fileID: 3636889631488202114}
   m_Layer: 0
   m_Name: Particle 2
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 6080701879614039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3636889631488202114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635433032227190564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8125182e7a95124e8c35c1ee457e5ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "dur\xE9": 1
 --- !u!1 &8664373149597002896
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +94,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -163,8 +177,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.49999622
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -216,8 +230,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.9627075
+          value: -0.86486626
           inSlope: 0
           outSlope: 0
           tangentMode: 0

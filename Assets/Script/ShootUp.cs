@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootUp : MonoBehaviour
 {
     public AutoShooterWithMovement shoot;
+    public GameObject particle;
     // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
@@ -16,7 +17,7 @@ public class ShootUp : MonoBehaviour
             shoot.fireRate += 0.2f;
 
             // Optional: Add any other logic or effects you want when health is increased , mettre ui a jour
-
+            Instantiate(particle, transform.position, Quaternion.identity);
             // Destroy the object that increased the health (assuming it's a power-up or similar)
             Destroy(gameObject);
         }

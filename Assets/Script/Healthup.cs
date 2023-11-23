@@ -5,8 +5,9 @@ using UnityEngine;
 public class Healthup : MonoBehaviour
 {
     public Health healthScript;
+    public GameObject particle;
     // Start is called before the first frame update
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,7 +19,7 @@ public class Healthup : MonoBehaviour
 
 
             // Optional: Add any other logic or effects you want when health is increased , mettre ui a jour
-
+            Instantiate(particle, transform.position, Quaternion.identity);
             // Destroy the object that increased the health (assuming it's a power-up or similar)
             Destroy(gameObject);
         }

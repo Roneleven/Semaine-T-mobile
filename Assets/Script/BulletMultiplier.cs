@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BulletMultiplier : MonoBehaviour
 {
+    public GameObject particle;
     // Cette fonction est appelée lorsqu'un autre collider entre en collision avec ce collider
     void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +15,7 @@ public class BulletMultiplier : MonoBehaviour
             {
                 shooter.bulletCount++;
             }
-
+            Instantiate(particle, transform.position, Quaternion.identity);
             // Détruit cet objet
             Destroy(gameObject);
         }

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3461278436458883012}
   - component: {fileID: 6246722646968131599}
   - component: {fileID: 7629333520056445781}
-  - component: {fileID: 4326431579479902979}
+  - component: {fileID: 3484251969857454244}
   - component: {fileID: 5699358569691471256}
-  - component: {fileID: 5679535211248972332}
+  - component: {fileID: -2898991988672962327}
   m_Layer: 0
-  m_Name: shootup
+  m_Name: multiply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4326431579479902979
+--- !u!114 &3484251969857454244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2682254143253032912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88928066ad9b11f4689ed438682bfb6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b9169e42c0bba84c95846ffbffa0e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
   particle: {fileID: 4060809198072690454, guid: f425d064deccd0e46a082e22e7196989, type: 3}
 --- !u!65 &5699358569691471256
 BoxCollider:
@@ -121,7 +120,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5679535211248972332
+--- !u!54 &-2898991988672962327
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

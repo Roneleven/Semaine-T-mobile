@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3527961093602408434}
   - component: {fileID: 5977128023033555877}
   - component: {fileID: 1905895966326688248}
+  - component: {fileID: 3778434110776615446}
   - component: {fileID: 6251441552498908841}
   - component: {fileID: -4154760352272561055}
   - component: {fileID: 2747298111305941723}
@@ -124,6 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b35beb06db4cd42a691a03ccf75d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3778434110776615446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774559270300518205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40068a9b2b6e549ac69a9441512887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticle: {fileID: 5635433032227190564, guid: a9ad9b8775fb41f48a8ba65600163763, type: 3}
+  hP_up: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  speedup: {fileID: 2682254143253032912, guid: 07cd0ea4381803a49b9b199bd7184d10, type: 3}
+  shootup: {fileID: 2682254143253032912, guid: 8356a183e018d8643a571797a60b3ec9, type: 3}
+  boom: {fileID: 2682254143253032912, guid: e2e5391449acefd43a0906c4694a87f1, type: 3}
 --- !u!114 &6251441552498908841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  particlePrefab: {fileID: 5635433032227190564, guid: a9ad9b8775fb41f48a8ba65600163763, type: 3}
-  particleSpawnOffset: {x: 0, y: 0, z: 0}
 --- !u!195 &-4154760352272561055
 NavMeshAgent:
   m_ObjectHideFlags: 0
