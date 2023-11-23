@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3461278436458883012}
   - component: {fileID: 6246722646968131599}
   - component: {fileID: 7629333520056445781}
+  - component: {fileID: 123605221542142677}
   - component: {fileID: 5699358569691471256}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: speedup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &123605221542142677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682254143253032912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01b473f44e0b974a8dba083b7713692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {fileID: 0}
 --- !u!65 &5699358569691471256
 BoxCollider:
   m_ObjectHideFlags: 0

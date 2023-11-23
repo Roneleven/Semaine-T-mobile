@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healthup : MonoBehaviour
+public class SpeedUp : MonoBehaviour
 {
-    public Health healthScript;
+    public AutoShooterWithMovement speed;
     // Start is called before the first frame update
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
         {
-            Health healthScript = other.GetComponent<Health>();
+            AutoShooterWithMovement speed = other.GetComponent<AutoShooterWithMovement>();
             // Increase health by 2 using the Health script reference
-            healthScript.health += 2;
+            speed.moveSpeed += 1;
 
             // Optional: Add any other logic or effects you want when health is increased , mettre ui a jour
 
