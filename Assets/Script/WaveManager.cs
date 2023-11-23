@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class WaveManager : MonoBehaviour
 {
     public int numberOfWaves;
     public int totalEnemies;
     public float timeBetweenWaves;
+    public float timeBetweenEnemySpawns;
     public GameObject enemyPrefab;
 
     public List<Transform> spawnPoints;
+
+    private int currentWave = 0;
 
     private void Start()
     {
@@ -18,25 +21,32 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
-        for (int wave = 0; wave < numberOfWaves; wave++)
+        while (currentWave < numberOfWaves)
         {
-            SpawnWave(totalEnemies);
+            int numberOfEnemies = totalEnemies;
+
+            for (int i = 0; i < numberOfEnemies; i++)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(timeBetweenEnemySpawns);
+            }
+
             yield return new WaitForSeconds(timeBetweenWaves);
             yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
+
+            // Move to the next wave
+            currentWave++;
         }
+
+        // All waves completed, game-over logic or other actions here.
     }
 
-    void SpawnWave(int numberOfEnemies)
+    void SpawnEnemy()
     {
-        int enemiesPerSpawner = Mathf.CeilToInt((float)numberOfEnemies / spawnPoints.Count);
+        // Randomly choose a spawn point
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
 
-        foreach (Transform spawnPoint in spawnPoints)
-        {
-            for (int i = 0; i < Mathf.Min(enemiesPerSpawner, numberOfEnemies); i++)
-            {
-                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                numberOfEnemies--;
-            }
-        }
+        // Instantiate an enemy at the chosen spawn point
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
