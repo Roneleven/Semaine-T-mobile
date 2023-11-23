@@ -3940,6 +3940,7 @@ GameObject:
   - component: {fileID: 1039731505}
   - component: {fileID: 1039731504}
   - component: {fileID: 1039731506}
+  - component: {fileID: 1039731507}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4000,6 +4001,22 @@ MonoBehaviour:
   pauseMenu: {fileID: 66130750}
   GameScene: Game
   MainMenuScene: Main_Menu
+--- !u!114 &1039731507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039731503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40068a9b2b6e549ac69a9441512887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP_up: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  speedup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  shootup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  boom: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
 --- !u!1 &1088270192
 GameObject:
   m_ObjectHideFlags: 0

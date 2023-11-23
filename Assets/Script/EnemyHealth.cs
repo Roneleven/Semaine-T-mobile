@@ -7,7 +7,8 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
 
     // Event for notifying enemy destruction
-    public event Action OnEnemyDestroyed;
+    //public event Action OnEnemyDestroyed;
+    public event Action<Transform> OnEnemyDestroyed;
 
     void Start()
     {
@@ -33,7 +34,8 @@ public class EnemyHealth : MonoBehaviour
         // Invoked when the enemy is destroyed
         if (OnEnemyDestroyed != null)
         {
-            OnEnemyDestroyed.Invoke();
+            //OnEnemyDestroyed.Invoke();
+            OnEnemyDestroyed.Invoke(transform);
         }
     }
 }
