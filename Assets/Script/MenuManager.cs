@@ -13,9 +13,12 @@ public class MenuManager : MonoBehaviour
     public GameObject pauseMenu;
     public string GameScene;
     public string MainMenuScene;
+    public FMOD.Studio.EventInstance backgroundMusic;
 
     void Start()
     {
+        backgroundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/UI/MusiqueDeFond");
+        backgroundMusic.start();
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
