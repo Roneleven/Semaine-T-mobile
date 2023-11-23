@@ -38,7 +38,10 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+
         if (collision.gameObject.CompareTag("Enemy") && !isImmune)
+
         {
             TakeDamage(damageAmount); // Utilisation de la variable de dégâts
             ActivateImmunity();
@@ -66,7 +69,10 @@ public class Health : MonoBehaviour
         }
     }
 
+
+
     void ActivateImmunity()
+
     {
         // Set the player immune and start the immune timer
         isImmune = true;
