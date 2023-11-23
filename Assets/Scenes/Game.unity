@@ -8023,6 +8023,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
@@ -8038,6 +8042,10 @@ PrefabInstance:
       propertyPath: moveActionToUse
       value: 
       objectReference: {fileID: -6655243106604658667, guid: d549823e28664d14ea1db96df24b0250, type: 3}
+    - target: {fileID: 330199861622282824, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 948435638720028995, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8122,8 +8130,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    m_RemovedGameObjects:
+    - {fileID: 603308901231337187, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8325990761693346019, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       insertIndex: -1
@@ -12157,7 +12167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028122732}
   - component: {fileID: 2028122734}
-  - component: {fileID: 2028122733}
+  - component: {fileID: 2028122735}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12180,14 +12190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 161931707}
   m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
---- !u!81 &2028122733
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028122731}
-  m_Enabled: 1
 --- !u!20 &2028122734
 Camera:
   m_ObjectHideFlags: 0
@@ -12239,6 +12241,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &2028122735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028122731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1001 &2037615238
 PrefabInstance:
   m_ObjectHideFlags: 0
