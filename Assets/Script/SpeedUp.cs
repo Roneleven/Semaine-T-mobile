@@ -9,7 +9,7 @@ public class SpeedUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             AutoShooterWithMovement speed = other.GetComponent<AutoShooterWithMovement>();
             // Increase health by 2 using the Health script reference
