@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hP_up: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
-  speedup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
-  shootup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
-  boom: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  speedup: {fileID: 2682254143253032912, guid: 8356a183e018d8643a571797a60b3ec9, type: 3}
+  shootup: {fileID: 2682254143253032912, guid: 07cd0ea4381803a49b9b199bd7184d10, type: 3}
+  boom: {fileID: 3583912669974581978, guid: 86a2a5f1ea9b03541b0376221fb4b017, type: 3}
 --- !u!114 &6251441552498908841
 MonoBehaviour:
   m_ObjectHideFlags: 0
