@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     private float immuneTimer = 0f;
 
     public float damageAmount = 1f; // Variable publique pour définir la valeur de dégâts
+    public HealthBarUpdater healthBarUpdater; // Référence à HealthBarUpdater
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class Health : MonoBehaviour
             ActivateImmunity();
         }
     }
+
     public void TakeDamage(float damage)
     {
         if (!isImmune)
@@ -54,6 +56,12 @@ public class Health : MonoBehaviour
                 // Player is defeated, you can add game-over logic here.
                 // For now, let's reset the health.
                 currentHealth = maxHealth;
+            }
+
+            // Mettez à jour la barre de vie avec la nouvelle valeur
+            if (healthBarUpdater != null)
+            {
+                healthBarUpdater.Change(-Mathf.RoundToInt(damage));
             }
         }
     }
