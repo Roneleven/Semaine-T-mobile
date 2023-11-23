@@ -1,50 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int health = 10;
-    public bool iframe = false;
-    private float cooldownTime = 1f; // Set the cooldown time to 1 second
-    private float cooldownTimer = 0f;
+    public int maxHealth = 10;
+    public int currentHealth;
+    public bool isImmune = false;
+    private float immuneDuration = 1f;
+    private float immuneTimer = 0f;
+
+    public float damageAmount = 1f; // Variable publique pour définir la valeur de dégâts
 
     // Start is called before the first frame update
     void Start()
     {
-        // Setup the UI
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Setup the UI
-        if (iframe)
+        if (isImmune)
         {
-            // Update the cooldown timer
-            cooldownTimer -= Time.deltaTime;
+            // Update the immune timer
+            immuneTimer -= Time.deltaTime;
 
-            // Check if the cooldown is over
-            if (cooldownTimer <= 0f)
+            // Check if the immune duration is over
+            if (immuneTimer <= 0f)
             {
-                iframe = false;
+                isImmune = false;
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (CompareTag("Enemy") || !iframe)
+        if (collision.gameObject.CompareTag("Enemy") && !isImmune)
         {
-            health -= 1;
-            iframe = true;
-            Cooldown();
+            TakeDamage(damageAmount); // Utilisation de la variable de dégâts
+            ActivateImmunity();
+        }
+    }
+    public void TakeDamage(float damage)
+    {
+        if (!isImmune)
+        {
+            currentHealth -= Mathf.RoundToInt(damage); // Utilisation de Mathf.RoundToInt pour des dégâts entiers
+
+            if (currentHealth <= 0)
+            {
+                // Player is defeated, you can add game-over logic here.
+                // For now, let's reset the health.
+                currentHealth = maxHealth;
+            }
         }
     }
 
-    public void Cooldown()
+    void ActivateImmunity()
     {
-        // Set the cooldown timer to 1 second
-        cooldownTimer = cooldownTime;
+        // Set the player immune and start the immune timer
+        isImmune = true;
+        immuneTimer = immuneDuration;
     }
 }
