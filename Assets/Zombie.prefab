@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3527961093602408434}
   - component: {fileID: 5977128023033555877}
   - component: {fileID: 1905895966326688248}
+  - component: {fileID: 1666054766478415804}
   - component: {fileID: 6251441552498908841}
   - component: {fileID: -4154760352272561055}
   - component: {fileID: 1474025440397251992}
@@ -123,6 +124,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b35beb06db4cd42a691a03ccf75d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1666054766478415804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774559270300518205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40068a9b2b6e549ac69a9441512887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP_up: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  speedup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  shootup: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
+  boom: {fileID: 2682254143253032912, guid: c13866de5ae287b42a1ada6ba596f2fb, type: 3}
 --- !u!114 &6251441552498908841
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,21 +10,24 @@ public class BonusSpawn : MonoBehaviour
     public GameObject speedup;
     public GameObject shootup;
     public GameObject boom;
-   
+
+    private Vector3 lastEnemyDeathPosition; // Store the position of the last killed enemy
+
     // ...
 
     void Update()
     {
-        Gamble(transform.position);
-        
-        if (bad >= 10)
+        if (EnemyHealth.GetEnemiesDestroyedCount() >= 5)
         {
-            // Modify the following line to pass the position to the Gamble method
-            //Gamble(Vector3.zero); // Default value; replace with the actual position
+            // Reset the count to prevent continuous spawning
+            EnemyHealth.ResetEnemiesDestroyedCount();
+
+            // Use the position of the last killed enemy as the spawn position
+            Gamble(lastEnemyDeathPosition);
         }
     }
 
-    // Modify the Gamble method to accept a Vector3 parameter for the position                          
+    // Modify the Gamble method to accept a Vector3 parameter for the position
     public void Gamble(Vector3 spawnPosition)
     {
         // Generate a random number between 1 and 4 (inclusive)
@@ -35,42 +38,41 @@ public class BonusSpawn : MonoBehaviour
         {
             case 1:
                 Instantiate(hP_up, spawnPosition, Quaternion.identity);
-                Debug.Log("Hell");
                 break;
             case 2:
                 Instantiate(speedup, spawnPosition, Quaternion.identity);
-                Debug.Log("Hi");
                 break;
             case 3:
                 Instantiate(shootup, spawnPosition, Quaternion.identity);
-                Debug.Log("LOL");
                 break;
             case 4:
                 Instantiate(boom, spawnPosition, Quaternion.identity);
-                Debug.Log("Ayo");
                 break;
             default:
                 Debug.LogError("Unexpected random number: " + randomNumber);
                 break;
         }
 
-        bad = 0;
+        // Reset the count to prevent continuous spawning
+        EnemyHealth.ResetEnemiesDestroyedCount();
     }
+
     private void OnEnable()
     {
         // Subscribe to the OnEnemyDestroyed event in EnemyHealth
-        GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
+        EnemyHealth.OnEnemyDestroyed += HandleEnemyDestroyed;
     }
 
     private void OnDisable()
     {
         // Unsubscribe to prevent memory leaks
-        GetComponent<EnemyHealth>().OnEnemyDestroyed -= HandleEnemyDestroyed;
+        EnemyHealth.OnEnemyDestroyed -= HandleEnemyDestroyed;
     }
 
-    // Handle the enemy destroyed event and spawn the bonus at the enemy's position
-    private void HandleEnemyDestroyed(Transform enemyTransform)
+    // Handle the enemy destroyed event and store the position of the last killed enemy
+    private void HandleEnemyDestroyed(Transform enemyTransform, Vector3 deathPosition)
     {
-        Gamble(enemyTransform.position);
+        lastEnemyDeathPosition = deathPosition;
     }
 }
+
