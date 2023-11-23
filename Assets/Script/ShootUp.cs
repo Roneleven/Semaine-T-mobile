@@ -18,7 +18,7 @@ public class ShootUp : MonoBehaviour
             // Optional: Add any other logic or effects you want when health is increased , mettre ui a jour
 
             // Destroy the object that increased the health (assuming it's a power-up or similar)
-            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }

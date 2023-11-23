@@ -13,12 +13,14 @@ public class Healthup : MonoBehaviour
         {
             Health healthScript = other.GetComponent<Health>();
             // Increase health by 2 using the Health script reference
+
             healthScript.currentHealth += 1;
+
 
             // Optional: Add any other logic or effects you want when health is increased , mettre ui a jour
 
             // Destroy the object that increased the health (assuming it's a power-up or similar)
-            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
