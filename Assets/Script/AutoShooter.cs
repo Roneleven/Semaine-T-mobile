@@ -15,11 +15,23 @@ public class AutoShooterWithMovement : MonoBehaviour
     private float fireCooldown = 0f;
     public InputActionReference moveActionToUse;
     public int bulletCount = 1;
+    public Rigidbody rb;
 
-   void Update()
+    void Start()
+    {
+        rb.GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        rb.drag = 5f;
+    }
+    void Update()
 {
-    // Handle player movement
-    Move();
+
+        if (transform.position.y < 1)
+        {
+            transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        }
+        // Handle player movement
+        Move();
 
     // Detect enemies within the shooting radius
     Collider[] hitColliders = Physics.OverlapSphere(transform.position, shootingRadius, enemyLayer);
@@ -43,8 +55,8 @@ public class AutoShooterWithMovement : MonoBehaviour
     void Move()
     {
         Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>().normalized;
-        Vector3 movement = new Vector3(moveDirection.x, 0f, moveDirection.y) * moveSpeed * Time.deltaTime;
-        transform.Translate(movement, Space.World);
+        Vector3 movement = new Vector3(moveDirection.x, 0f, moveDirection.y);
+        rb.AddForce(movement * moveSpeed);
     }
 
     void AimAt(Transform target)
@@ -63,27 +75,31 @@ public class AutoShooterWithMovement : MonoBehaviour
     }
 
     IEnumerator ShootCoroutine()
-{
-    // Utilisez une boucle for pour tirer bulletCount fois
-    for (int i = 0; i < bulletCount; i++)
     {
-        // Instantiate a bullet and set its position and rotation
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-        // Add force to the bullet to make it move
-        BulletController bulletController = bullet.GetComponent<BulletController>();
-        if (bulletController != null)
+        // Utilisez une boucle for pour tirer bulletCount fois
+        for (int i = 0; i < bulletCount; i++)
         {
-            bulletController.SetBulletSpeed(10f);
+            // Ajustez la position de départ de la balle
+            Vector3 bulletStartPosition = firePoint.position + firePoint.forward * 2f;
+
+            // Instantiate a bullet and set its position and rotation
+            GameObject bullet = Instantiate(bulletPrefab, bulletStartPosition, firePoint.rotation);
+
+            // Add force to the bullet to make it move
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (bulletController != null)
+            {
+                bulletController.SetBulletSpeed(10f);
+            }
+
+            // Attendez 0.1 seconde avant de tirer la prochaine balle
+            yield return new WaitForSeconds(0.1f);
         }
 
-        // Attendez 0.1 seconde avant de tirer la prochaine balle
-        yield return new WaitForSeconds(0.1f);
+        // Attendez fireRate secondes après avoir tiré toutes les balles
+        yield return new WaitForSeconds(fireRate);
     }
 
-    // Attendez fireRate secondes après avoir tiré toutes les balles
-    yield return new WaitForSeconds(fireRate);
-}
 
     Transform FindClosestEnemy(Collider[] enemies)
     {
