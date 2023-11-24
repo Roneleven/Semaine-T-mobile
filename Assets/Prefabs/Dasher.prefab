@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5879100178590734614}
   - component: {fileID: 3527961093602408434}
   - component: {fileID: 5977128023033555877}
-  - component: {fileID: 1905895966326688248}
   - component: {fileID: 3778434110776615446}
   - component: {fileID: 6251441552498908841}
   - component: {fileID: -4154760352272561055}
@@ -115,18 +114,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1905895966326688248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774559270300518205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b35beb06db4cd42a691a03ccf75d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3778434110776615446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  chargeDistance: 5
-  chargeSpeed: 10
+  chargeDistance: 15
+  chargeSpeed: 120
   baseSpeed: 2
   pauseDurationInSeconds: 2
 --- !u!1 &7203722787269625104
