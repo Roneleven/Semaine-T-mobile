@@ -312,6 +312,7 @@ MonoBehaviour:
   moveActionToUse: {fileID: -6655243106604658667, guid: d549823e28664d14ea1db96df24b0250, type: 3}
   bulletCount: 1
   rb: {fileID: 6823189147860300604}
+  animator: {fileID: 0}
 --- !u!114 &1041402801704012489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,8 +718,8 @@ Transform:
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1840753579206112911}
   - {fileID: 45523606953103804}
+  - {fileID: 1840753579206112911}
   - {fileID: 5691725225363046626}
   m_Father: {fileID: 8325990761693346019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -16,10 +16,12 @@ public class AutoShooterWithMovement : MonoBehaviour
     public InputActionReference moveActionToUse;
     public int bulletCount = 1;
     public Rigidbody rb;
+    public Animator animator;
     
 
     void Start()
     {
+        animator = this.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animator>();
         rb.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.drag = 5f;
@@ -43,6 +45,11 @@ public class AutoShooterWithMovement : MonoBehaviour
         Shoot();
 
         fireCooldown = Time.time + 1f / fireRate;
+    }
+    else
+    {
+      
+        
     }
 }
 void Move()
