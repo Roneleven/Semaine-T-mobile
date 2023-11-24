@@ -16,7 +16,9 @@ public class BonusSpawn : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHealth.GetEnemiesDestroyedCount() >= 5)
+        int randomCount = UnityEngine.Random.Range(10, 20);
+
+    if (EnemyHealth.GetEnemiesDestroyedCount() >= randomCount)
         {
             // Reset the count to prevent continuous spawning
             EnemyHealth.ResetEnemiesDestroyedCount();

@@ -49,7 +49,7 @@ void Move()
 {
     Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>().normalized;
     Vector3 movement = new Vector3(moveDirection.x, 0f, moveDirection.y);
-    rb.AddForce(movement * moveSpeed);
+    rb.AddForce(movement * moveSpeed * Time.deltaTime);
 
     if (movement != Vector3.zero)
     {
@@ -87,7 +87,7 @@ void Move()
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (bulletController != null)
             {
-                bulletController.SetBulletSpeed(10f);
+                bulletController.SetBulletSpeed(30f);
             }
 
             yield return new WaitForSeconds(0.1f);
