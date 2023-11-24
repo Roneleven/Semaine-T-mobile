@@ -63,7 +63,8 @@ public class MenuManager : MonoBehaviour
     // Fonction pour relancer le jeu (appelée par le bouton Retry)
     public void Retry()
     {
-        SceneManager.LoadScene(GameScene); 
+        SceneManager.LoadScene(GameScene);
+        Time.timeScale = 1;
     }
 
     public void MainMenu()
