@@ -39,7 +39,6 @@ public class AutoShooterWithMovement : MonoBehaviour
 
     if (hitColliders.Length > 0 && Time.time > fireCooldown && !IsInvoking("ShootCoroutine"))
     {
-        animator.SetBool("IsAttacking", true);
         Transform closestEnemy = FindClosestEnemy(hitColliders);
         AimAt(closestEnemy);
 
@@ -49,10 +48,7 @@ public class AutoShooterWithMovement : MonoBehaviour
     }
     else
     {
-        if (Time.time > 2)
-            {
-                animator.SetBool("IsAttacking", false);
-            }
+      
         
     }
 }
