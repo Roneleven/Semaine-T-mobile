@@ -27,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Quit()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
         Application.Quit();
     }
 
