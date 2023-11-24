@@ -11,6 +11,7 @@ public class Healthup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Collectibles/Health");
             Health healthScript = other.GetComponent<Health>();
             // Increase health by 2 using the Health script reference
 

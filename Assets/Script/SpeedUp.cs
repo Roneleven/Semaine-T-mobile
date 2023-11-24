@@ -11,6 +11,7 @@ public class SpeedUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Collectibles/Collect");
             AutoShooterWithMovement speed = other.GetComponent<AutoShooterWithMovement>();
             // Increase health by 2 using the Health script reference
             speed.moveSpeed += 1;
