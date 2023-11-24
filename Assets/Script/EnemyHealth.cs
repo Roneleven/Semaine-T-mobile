@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Enemys/EnemyDead", GetComponent<Transform>().position);
 
         if (currentHealth <= 0)
         {
@@ -31,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
             NotifyEnemyDestroyed(deathPosition);
 
             // Perform other destruction logic if needed
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Enemys/EnemyHit", GetComponent<Transform>().position);
             Destroy(gameObject);
         }
     }
