@@ -9,9 +9,9 @@ public class Health : MonoBehaviour
     private float immuneDuration = 1f;
     private float immuneTimer = 0f;
 
-    public float damageAmount = 1f; // Variable publique pour définir la valeur de dégâts
-    public HealthBarUpdater healthBarUpdater; // Référence à HealthBarUpdater
-    public GameObject gameOverUI; // Référence à votre UI Game Over
+    public float damageAmount = 1f; // Variable publique pour dï¿½finir la valeur de dï¿½gï¿½ts
+    public HealthBarUpdater healthBarUpdater; // Rï¿½fï¿½rence ï¿½ HealthBarUpdater
+    public GameObject gameOverUI; // Rï¿½fï¿½rence ï¿½ votre UI Game Over
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,8 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !isImmune)
         {
-            TakeDamage(damageAmount); // Utilisation de la variable de dégâts
+            TakeDamage(damageAmount); // Utilisation de la variable de dï¿½gï¿½ts
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/hit");
             ActivateImmunity();
         }
     }
@@ -48,10 +49,11 @@ public class Health : MonoBehaviour
     {
         if (!isImmune)
         {
-            currentHealth -= Mathf.RoundToInt(damage); // Utilisation de Mathf.RoundToInt pour des dégâts entiers
+            currentHealth -= Mathf.RoundToInt(damage); // Utilisation de Mathf.RoundToInt pour des dï¿½gï¿½ts entiers
 
             if (currentHealth <= 0)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Death");
                 // Player is defeated, dissociate the camera before destroying the player
                 Camera.main.transform.parent = null;
                 Destroy(gameObject);
@@ -64,7 +66,7 @@ public class Health : MonoBehaviour
                 }
             }
 
-            // Mettez à jour la barre de vie avec la nouvelle valeur
+            // Mettez ï¿½ jour la barre de vie avec la nouvelle valeur
             if (healthBarUpdater != null)
             {
                 healthBarUpdater.Change(-Mathf.RoundToInt(damage));
