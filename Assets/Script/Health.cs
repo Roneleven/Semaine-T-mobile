@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class Health : MonoBehaviour
 
     public float damageAmount = 1f; // Variable publique pour définir la valeur de dégâts
     public HealthBarUpdater healthBarUpdater; // Référence à HealthBarUpdater
+    public GameObject gameOverUI; // Référence à votre UI Game Over
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +37,7 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-
         if (collision.gameObject.CompareTag("Enemy") && !isImmune)
-
         {
             TakeDamage(damageAmount); // Utilisation de la variable de dégâts
             ActivateImmunity();
@@ -56,9 +52,16 @@ public class Health : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                // Player is defeated, you can add game-over logic here.
-                // For now, let's reset the health.
-                currentHealth = maxHealth;
+                // Player is defeated, dissociate the camera before destroying the player
+                Camera.main.transform.parent = null;
+                Destroy(gameObject);
+
+                // Activer l'UI Game Over
+                if (gameOverUI != null)
+                {
+                    gameOverUI.SetActive(true);
+                    Time.timeScale = 0f;
+                }
             }
 
             // Mettez à jour la barre de vie avec la nouvelle valeur
@@ -69,10 +72,7 @@ public class Health : MonoBehaviour
         }
     }
 
-
-
     void ActivateImmunity()
-
     {
         // Set the player immune and start the immune timer
         isImmune = true;

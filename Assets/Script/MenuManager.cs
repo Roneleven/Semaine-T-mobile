@@ -65,7 +65,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    // Fonction pour relancer le jeu (appel�e par le bouton Retry)
    public void Retry()
 {
     FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
@@ -74,7 +73,9 @@ public class MenuManager : MonoBehaviour
     
     // Rechargez la scène du jeu
     SceneManager.LoadScene(GameScene); 
+    Time.timeScale = 1;
 }
+
 
     public void MainMenu()
     {
