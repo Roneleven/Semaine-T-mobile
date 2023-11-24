@@ -33,6 +33,7 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
 
             // Move to the next wave
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/NewWave");
             currentWave++;
         }
 
