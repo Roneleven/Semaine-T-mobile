@@ -16,6 +16,7 @@ public class AutoShooterWithMovement : MonoBehaviour
     public InputActionReference moveActionToUse;
     public int bulletCount = 1;
     public Rigidbody rb;
+    
 
     void Start()
     {
@@ -84,6 +85,8 @@ public class AutoShooterWithMovement : MonoBehaviour
 
             // Instantiate a bullet and set its position and rotation
             GameObject bullet = Instantiate(bulletPrefab, bulletStartPosition, firePoint.rotation);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Tir");
+
 
             // Add force to the bullet to make it move
             BulletController bulletController = bullet.GetComponent<BulletController>();

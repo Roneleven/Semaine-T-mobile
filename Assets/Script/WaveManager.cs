@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public int numberOfWaves;
-    public int totalEnemies;
-    public float timeBetweenWaves;
-    public float timeBetweenEnemySpawns;
-    public GameObject enemyPrefab;
-
-    public List<Transform> spawnPoints;
+    [SerializeField] private int numberOfWaves;
+    [SerializeField] private int totalEnemies;
+    [SerializeField] private float timeBetweenWaves;
+    [SerializeField] private float timeBetweenEnemySpawns;
+    [SerializeField] private List<GameObject> enemyPrefabs;  // Use a list of enemy prefabs instead of a single GameObject
+    [SerializeField] private List<Transform> spawnPoints;
 
     private int currentWave = 0;
 
@@ -45,6 +44,9 @@ public class WaveManager : MonoBehaviour
     {
         // Randomly choose a spawn point
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+
+        // Randomly choose an enemy prefab
+        GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
 
         // Instantiate an enemy at the chosen spawn point
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
