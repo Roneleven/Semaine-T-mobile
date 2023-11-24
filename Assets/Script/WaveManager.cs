@@ -55,6 +55,7 @@ public class WaveManager : MonoBehaviour
         // All waves are completed, display victory UI
         if (victoryUI != null)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/StageClear");
             victoryUI.SetActive(true);
             Time.timeScale = 0f; // Pause the game when victory is displayed
         }
