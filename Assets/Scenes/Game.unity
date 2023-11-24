@@ -6995,9 +6995,11 @@ MonoBehaviour:
   enemiesPerWave: 0a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000014000000
   timeBetweenWaves: 5
   timeBetweenEnemySpawns: 1
-  enemyPrefabs:
-  - {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
-  - {fileID: 2774559270300518205, guid: 7e8a81e41d71bc64aacc415b5c91c509, type: 3}
+  enemySpawnInfoList:
+  - enemyPrefab: {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
+    spawnFrequency: 0.7
+  - enemyPrefab: {fileID: 2774559270300518205, guid: 7e8a81e41d71bc64aacc415b5c91c509, type: 3}
+    spawnFrequency: 0.3
   spawnPoints:
   - {fileID: 1573656382}
   - {fileID: 259143933}
@@ -7010,7 +7012,8 @@ MonoBehaviour:
   - {fileID: 350288870}
   - {fileID: 1046481728}
   - {fileID: 317335608}
-  victoryUI: {fileID: 1197145104}
+  victoryUI: {fileID: 0}
+  currentWave: 0
 --- !u!4 &1039731505
 Transform:
   m_ObjectHideFlags: 0
