@@ -6997,7 +6997,7 @@ MonoBehaviour:
   timeBetweenEnemySpawns: 1
   enemyPrefabs:
   - {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
-  - {fileID: 1068852718533805695, guid: 8b380bcd30d6ae040ba7666882e1c007, type: 3}
+  - {fileID: 2774559270300518205, guid: 7e8a81e41d71bc64aacc415b5c91c509, type: 3}
   spawnPoints:
   - {fileID: 1573656382}
   - {fileID: 259143933}
