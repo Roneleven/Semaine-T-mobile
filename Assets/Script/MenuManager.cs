@@ -15,6 +15,9 @@ public class MenuManager : MonoBehaviour
     public string MainMenuScene;
     public FMOD.Studio.EventInstance backgroundMusic;
 
+    public float normalVolume = 1.0f; // Volume normal
+    public float pausedVolume = 0.2f;
+
     void Start()
     {
         backgroundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/UI/MusiqueDeFond");
@@ -24,10 +27,9 @@ public class MenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void GamePause()
+        public void GamePause()
     {
         isPaused = !isPaused;
-        
 
         if (isPaused)
         {
@@ -35,6 +37,7 @@ public class MenuManager : MonoBehaviour
             pauseButton.image.sprite = spritePause;
             pauseMenu.SetActive(true);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
+            backgroundMusic.setVolume(pausedVolume); // Diminue le volume
         }
         else
         {
@@ -42,6 +45,7 @@ public class MenuManager : MonoBehaviour
             pauseButton.image.sprite = spritePlay;
             pauseMenu.SetActive(false);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
+            backgroundMusic.setVolume(normalVolume); // Remet le volume à la normale
         }
     }
 
@@ -71,6 +75,7 @@ public class MenuManager : MonoBehaviour
     // Arrêtez la musique de fond
     backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     
+    backgroundMusic.setVolume(normalVolume);
     // Rechargez la scène du jeu
     SceneManager.LoadScene(GameScene); 
     Time.timeScale = 1;
@@ -80,6 +85,7 @@ public class MenuManager : MonoBehaviour
     public void MainMenu()
     {
     FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
+    backgroundMusic.setVolume(normalVolume);
         SceneManager.LoadScene(MainMenuScene); 
         backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
