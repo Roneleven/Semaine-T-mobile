@@ -47,6 +47,7 @@ public class ChargingUnit : MonoBehaviour
                     // Start charging
                     isCharging = true;
                     navMeshAgent.speed = chargeSpeed;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Enemys/Enemy3");
                 }
 
                 // Update pause timer
@@ -57,6 +58,7 @@ public class ChargingUnit : MonoBehaviour
                     // Reset timer and continue charging
                     pauseTimer = 0f;
                     navMeshAgent.SetDestination(player.position);
+                    
                 }
             }
             else
