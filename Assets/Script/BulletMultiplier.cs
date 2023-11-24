@@ -25,6 +25,7 @@ public class BulletMultiplier : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Collectibles/Collect");
             AutoShooterWithMovement shooter = other.GetComponent<AutoShooterWithMovement>();
 
             shooter.bulletCount++;

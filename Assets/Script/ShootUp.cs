@@ -12,6 +12,7 @@ public class ShootUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Collectibles/Collect");
             AutoShooterWithMovement shoot = other.GetComponent<AutoShooterWithMovement>();
             // Increase health by 2 using the Health script reference
             shoot.fireRate += 0.2f;
