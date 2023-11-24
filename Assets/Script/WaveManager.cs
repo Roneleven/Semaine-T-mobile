@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class EnemySpawnInfo
+    {
+        public GameObject enemyPrefab;
+        public float spawnFrequency;
+    }
+
     [SerializeField] private List<int> enemiesPerWave;
     [SerializeField] private float timeBetweenWaves;
     [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<EnemySpawnInfo> enemySpawnInfoList;
     [SerializeField] private List<Transform> spawnPoints;
+    public GameObject victoryUI;
 
-    private int currentWave = 0;
+    public int currentWave = 0;
 
     private void Start()
     {
+        if (victoryUI != null)
+        {
+            victoryUI.SetActive(false); // Make sure the victory UI is deactivated at the start
+        }
+
         StartCoroutine(SpawnWaves());
     }
 
@@ -21,6 +34,8 @@ public class WaveManager : MonoBehaviour
     {
         while (currentWave < enemiesPerWave.Count)
         {
+            // Display the start of the wave image here for each wave if needed
+
             int numberOfEnemies = enemiesPerWave[currentWave];
 
             for (int i = 0; i < numberOfEnemies; i++)
@@ -37,13 +52,48 @@ public class WaveManager : MonoBehaviour
             currentWave++;
         }
 
-        // All waves completed, game-over logic or other actions here.
+        // All waves are completed, display victory UI
+        if (victoryUI != null)
+        {
+            victoryUI.SetActive(true);
+            Time.timeScale = 0f; // Pause the game when victory is displayed
+        }
     }
 
     void SpawnEnemy()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+
+        // Calculate total frequency
+        float totalFrequency = 0f;
+        foreach (var enemySpawnInfo in enemySpawnInfoList)
+        {
+            totalFrequency += enemySpawnInfo.spawnFrequency;
+        }
+
+        // Randomly choose an enemy type based on frequency
+        float randomValue = Random.Range(0f, totalFrequency);
+        float cumulativeFrequency = 0f;
+        GameObject chosenEnemyPrefab = null;
+
+        foreach (var enemySpawnInfo in enemySpawnInfoList)
+        {
+            cumulativeFrequency += enemySpawnInfo.spawnFrequency;
+
+            if (randomValue <= cumulativeFrequency)
+            {
+                chosenEnemyPrefab = enemySpawnInfo.enemyPrefab;
+                break;
+            }
+        }
+
+        if (chosenEnemyPrefab != null)
+        {
+            Instantiate(chosenEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else
+        {
+            Debug.LogError("No enemy prefab chosen. Check your spawn frequencies.");
+        }
     }
 }
