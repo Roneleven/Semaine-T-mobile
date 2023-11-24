@@ -60,14 +60,19 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    // Fonction pour relancer le jeu (appel�e par le bouton Retry)
-    public void Retry()
-    {
-        SceneManager.LoadScene(GameScene); 
-    }
+    // Fonction pour relancer le jeu (appel�e par le bouton Retry)
+   public void Retry()
+{
+    // Arrêtez la musique de fond
+    backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    
+    // Rechargez la scène du jeu
+    SceneManager.LoadScene(GameScene); 
+}
 
     public void MainMenu()
     {
         SceneManager.LoadScene(MainMenuScene); 
+        backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }
