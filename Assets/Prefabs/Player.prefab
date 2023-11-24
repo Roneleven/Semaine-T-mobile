@@ -569,7 +569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &158071251356802171
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +719,7 @@ Transform:
   m_Children:
   - {fileID: 1840753579206112911}
   - {fileID: 45523606953103804}
+  - {fileID: 5691725225363046626}
   m_Father: {fileID: 8325990761693346019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8190043021143689725
@@ -905,6 +906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beard_Wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -979,6 +984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4715e845370e5da4c85158e068c2c9f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -988,4 +997,90 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4715e845370e5da4c85158e068c2c9f0, type: 3}
   m_PrefabInstance: {fileID: 2162030040154804580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5293885235343681289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9088683500050876345}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.544
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7560165450514709025, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_Name
+      value: Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: -7065367224503584004, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.541
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_Name
+      value: Beard_Wizard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.44
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+--- !u!4 &5691725225363046626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53b8d778f3d553a488340f86b60cf65f, type: 3}
+  m_PrefabInstance: {fileID: 5293885235343681289}
   m_PrefabAsset: {fileID: 0}
