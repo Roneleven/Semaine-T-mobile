@@ -9701,6 +9701,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1840753579206112911, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840753579206112911, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2020171276208449707, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1
