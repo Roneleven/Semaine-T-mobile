@@ -6992,9 +6992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec62b97b8d781543a6603ca043dffcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesPerWave: 0a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000014000000
+  enemiesPerWave: 14000000180000001c0000002000000024000000280000002c00000030000000340000003c000000
   timeBetweenWaves: 5
-  timeBetweenEnemySpawns: 1
+  timeBetweenEnemySpawns: 0.2
   enemyPrefabs:
   - {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
   - {fileID: 2774559270300518205, guid: 7e8a81e41d71bc64aacc415b5c91c509, type: 3}
@@ -9661,6 +9661,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158071251356802171, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: rb
       value: 
@@ -9671,7 +9675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: moveSpeed
-      value: 20
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 169236619160727573, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: shootingRadius
@@ -9820,6 +9824,10 @@ PrefabInstance:
     - target: {fileID: 8325990761693346019, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877006556938689655, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
