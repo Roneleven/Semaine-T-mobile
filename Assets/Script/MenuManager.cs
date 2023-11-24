@@ -27,18 +27,21 @@ public class MenuManager : MonoBehaviour
     public void GamePause()
     {
         isPaused = !isPaused;
+        
 
         if (isPaused)
         {
             Time.timeScale = 0;
             pauseButton.image.sprite = spritePause;
             pauseMenu.SetActive(true);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
         }
         else
         {
             Time.timeScale = 1;
             pauseButton.image.sprite = spritePlay;
             pauseMenu.SetActive(false);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
         }
     }
 
@@ -50,6 +53,7 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 0;
             pauseButton.image.sprite = spritePause;
             pauseMenu.SetActive(true);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
         }
         else
         {
@@ -57,12 +61,14 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 1;
             pauseButton.image.sprite = spritePlay;
             pauseMenu.SetActive(false);
+            
         }
     }
 
     // Fonction pour relancer le jeu (appel�e par le bouton Retry)
    public void Retry()
 {
+    FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
     // Arrêtez la musique de fond
     backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     
@@ -72,6 +78,7 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
+    FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Button");
         SceneManager.LoadScene(MainMenuScene); 
         backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
