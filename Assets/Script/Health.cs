@@ -9,14 +9,29 @@ public class Health : MonoBehaviour
     private float immuneDuration = 1f;
     private float immuneTimer = 0f;
 
+
     public float damageAmount = 1f; // Variable publique pour d�finir la valeur de d�g�ts
     public HealthBarUpdater healthBarUpdater; // R�f�rence � HealthBarUpdater
     public GameObject gameOverUI; // R�f�rence � votre UI Game Over
+    public Renderer playerRenderer; // R�f�rence au Renderer du joueur (assurez-vous d'ajouter un Renderer au joueur)
+
+    private Color originalColor;
+    private Color immuneColor = new Color(1f, 0f, 0f, 0.5f); // Rouge transparent
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+
+        // Assurez-vous qu'il y a un Renderer attach� au joueur
+        if (playerRenderer != null)
+        {
+            originalColor = playerRenderer.material.color;
+        }
+        else
+        {
+            Debug.LogError("Veuillez attacher un Renderer au joueur.");
+        }
     }
 
     // Update is called once per frame
@@ -31,8 +46,23 @@ public class Health : MonoBehaviour
             if (immuneTimer <= 0f)
             {
                 isImmune = false;
+                // R�tablir la couleur originale lorsque l'immunit� est termin�e
+                playerRenderer.material.color = originalColor;
+            }
+            else
+            {
+                // Faire clignoter en rouge
+                StartCoroutine(Blink());
             }
         }
+    }
+
+    IEnumerator Blink()
+    {
+        playerRenderer.material.color = immuneColor;
+        yield return new WaitForSeconds(0.1f); // Temps pendant lequel la couleur rouge est affich�e
+        playerRenderer.material.color = originalColor;
+        yield return new WaitForSeconds(0.1f); // Temps pendant lequel la couleur originale est affich�e
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,6 +92,8 @@ public class Health : MonoBehaviour
                 if (gameOverUI != null)
                 {
                     gameOverUI.SetActive(true);
+
+                    // Mettre en pause le jeu
                     Time.timeScale = 0f;
                 }
             }

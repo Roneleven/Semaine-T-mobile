@@ -9240,6 +9240,10 @@ PrefabInstance:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1710486385}
+    - target: {fileID: 3077786368921940127, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+      propertyPath: playerRenderer
+      value: 
+      objectReference: {fileID: 8325990762847849529}
     - target: {fileID: 4007410917535865091, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1061
@@ -15568,6 +15572,11 @@ GameObject:
 --- !u!4 &8325990762847849524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8325990761693346019, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
+  m_PrefabInstance: {fileID: 1196471511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8325990762847849529 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2033233028986183855, guid: 4527b5b2061561b45af59629d99e8abe, type: 3}
   m_PrefabInstance: {fileID: 1196471511}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
