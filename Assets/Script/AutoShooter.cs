@@ -16,10 +16,12 @@ public class AutoShooterWithMovement : MonoBehaviour
     public InputActionReference moveActionToUse;
     public int bulletCount = 1;
     public Rigidbody rb;
+    public Animator animator;
     
 
     void Start()
     {
+        animator = this.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Animator>();
         rb.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.drag = 5f;
@@ -37,12 +39,21 @@ public class AutoShooterWithMovement : MonoBehaviour
 
     if (hitColliders.Length > 0 && Time.time > fireCooldown && !IsInvoking("ShootCoroutine"))
     {
+        animator.SetBool("IsAttacking", true);
         Transform closestEnemy = FindClosestEnemy(hitColliders);
         AimAt(closestEnemy);
 
         Shoot();
 
         fireCooldown = Time.time + 1f / fireRate;
+    }
+    else
+    {
+        if (Time.time > 2)
+            {
+                animator.SetBool("IsAttacking", false);
+            }
+        
     }
 }
 void Move()
