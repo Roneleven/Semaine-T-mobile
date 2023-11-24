@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] private List<int> enemiesPerWave;
-    [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private List<GameObject> enemyPrefabs;
-    [SerializeField] private List<Transform> spawnPoints;
+    public List<int> enemiesPerWave;
+    public float timeBetweenWaves;
+    public float timeBetweenEnemySpawns;
+    public List<GameObject> enemyPrefabs;
+    public List<Transform> spawnPoints;
+    public GameObject victoryUI;
 
     private int currentWave = 0;
 
     private void Start()
     {
+        if (victoryUI != null)
+        {
+            victoryUI.SetActive(false); // Assurez-vous que l'UI de victoire est désactivée au départ
+        }
+
         StartCoroutine(SpawnWaves());
     }
 
@@ -21,6 +27,8 @@ public class WaveManager : MonoBehaviour
     {
         while (currentWave < enemiesPerWave.Count)
         {
+            // Afficher l'image de début de manche ici pour chaque vague si nécessaire
+
             int numberOfEnemies = enemiesPerWave[currentWave];
 
             for (int i = 0; i < numberOfEnemies; i++)
@@ -37,7 +45,12 @@ public class WaveManager : MonoBehaviour
             currentWave++;
         }
 
-        // All waves completed, game-over logic or other actions here.
+        // Toutes les vagues sont terminées, afficher l'UI de victoire
+        if (victoryUI != null)
+        {
+            victoryUI.SetActive(true);
+            Time.timeScale = 0f; // Mettez en pause le jeu lorsque la victoire est affichée
+        }
     }
 
     void SpawnEnemy()
