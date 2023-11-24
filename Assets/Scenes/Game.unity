@@ -6995,11 +6995,9 @@ MonoBehaviour:
   enemiesPerWave: 0a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000014000000
   timeBetweenWaves: 5
   timeBetweenEnemySpawns: 1
-  enemySpawnInfoList:
-  - enemyPrefab: {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
-    spawnFrequency: 0.7
-  - enemyPrefab: {fileID: 2774559270300518205, guid: 7e8a81e41d71bc64aacc415b5c91c509, type: 3}
-    spawnFrequency: 0.3
+  enemyPrefabs:
+  - {fileID: 2774559270300518205, guid: 6720c37200bc0fa45ab4b54845419415, type: 3}
+  - {fileID: 1068852718533805695, guid: 8b380bcd30d6ae040ba7666882e1c007, type: 3}
   spawnPoints:
   - {fileID: 1573656382}
   - {fileID: 259143933}
@@ -7012,7 +7010,19 @@ MonoBehaviour:
   - {fileID: 350288870}
   - {fileID: 1046481728}
   - {fileID: 317335608}
-  victoryUI: {fileID: 0}
+  waveStartImages:
+  - {fileID: 21300000, guid: d1e5e59333b503e47a33a7f5826175cb, type: 3}
+  - {fileID: 21300000, guid: dc27edc8612d2db418d29bc2654beb13, type: 3}
+  - {fileID: 21300000, guid: 25f8eab428b698849b5fe562a19754f3, type: 3}
+  - {fileID: 21300000, guid: 9bf900327ca74b44582b42e760e37a6a, type: 3}
+  - {fileID: 21300000, guid: 75d5aa0e27796d1449e35e71330bdbb5, type: 3}
+  - {fileID: 21300000, guid: d2766aae6a8dd4a469fe1bf8f79397ae, type: 3}
+  - {fileID: 21300000, guid: 25bef8441a2a71a44af0ea825c6f2660, type: 3}
+  - {fileID: 21300000, guid: f3dfd6f8958d9364a912447af15b32bf, type: 3}
+  - {fileID: 21300000, guid: 8e330caad319f1540a1d02637a47dc08, type: 3}
+  - {fileID: 21300000, guid: a4e458019a22ce544a83e315affe221a, type: 3}
+  victoryUI: {fileID: 1197145104}
+  waveStartImage: {fileID: 1344284540}
   currentWave: 0
 --- !u!4 &1039731505
 Transform:

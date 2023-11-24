@@ -1,40 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class EnemySpawnInfo
-    {
-        public GameObject enemyPrefab;
-        public float spawnFrequency;
-    }
-
-    [SerializeField] private List<int> enemiesPerWave;
-    [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private List<EnemySpawnInfo> enemySpawnInfoList;
-    [SerializeField] private List<Transform> spawnPoints;
+    public List<int> enemiesPerWave;
+    public float timeBetweenWaves;
+    public float timeBetweenEnemySpawns;
+    public List<GameObject> enemyPrefabs;
+    public List<Transform> spawnPoints;
+    public List<Sprite> waveStartImages; // Tableau d'images de début de manche
     public GameObject victoryUI;
+
+    public Image waveStartImage; // Référence à l'objet Image dans l'inspecteur
 
     public int currentWave = 0;
 
-    private void Start()
+    public void Start()
     {
         if (victoryUI != null)
         {
-            victoryUI.SetActive(false); // Make sure the victory UI is deactivated at the start
+            victoryUI.SetActive(false); // Assurez-vous que l'UI de victoire est désactivée au départ
         }
 
         StartCoroutine(SpawnWaves());
     }
 
-    IEnumerator SpawnWaves()
+    public IEnumerator SpawnWaves()
     {
         while (currentWave < enemiesPerWave.Count)
         {
-            // Display the start of the wave image here for each wave if needed
+            // Assurez-vous que l'index de la vague est dans la plage du tableau
+            if (currentWave < waveStartImages.Count)
+            {
+                // Afficher l'image de début de manche correspondante à la vague
+                waveStartImage.sprite = waveStartImages[currentWave];
+                waveStartImage.gameObject.SetActive(true);
+                yield return new WaitForSeconds(2f); // Vous pouvez ajuster la durée de l'affichage
+                waveStartImage.gameObject.SetActive(false);
+            }
 
             int numberOfEnemies = enemiesPerWave[currentWave];
 
@@ -52,49 +57,18 @@ public class WaveManager : MonoBehaviour
             currentWave++;
         }
 
-        // All waves are completed, display victory UI
+        // Toutes les vagues sont terminées, afficher l'UI de victoire
         if (victoryUI != null)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/StageClear");
             victoryUI.SetActive(true);
-            Time.timeScale = 0f; // Pause the game when victory is displayed
+            Time.timeScale = 0f; // Mettez en pause le jeu lorsque la victoire est affichée
         }
     }
 
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-
-        // Calculate total frequency
-        float totalFrequency = 0f;
-        foreach (var enemySpawnInfo in enemySpawnInfoList)
-        {
-            totalFrequency += enemySpawnInfo.spawnFrequency;
-        }
-
-        // Randomly choose an enemy type based on frequency
-        float randomValue = Random.Range(0f, totalFrequency);
-        float cumulativeFrequency = 0f;
-        GameObject chosenEnemyPrefab = null;
-
-        foreach (var enemySpawnInfo in enemySpawnInfoList)
-        {
-            cumulativeFrequency += enemySpawnInfo.spawnFrequency;
-
-            if (randomValue <= cumulativeFrequency)
-            {
-                chosenEnemyPrefab = enemySpawnInfo.enemyPrefab;
-                break;
-            }
-        }
-
-        if (chosenEnemyPrefab != null)
-        {
-            Instantiate(chosenEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        }
-        else
-        {
-            Debug.LogError("No enemy prefab chosen. Check your spawn frequencies.");
-        }
+        GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
