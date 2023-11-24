@@ -6280,8 +6280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec62b97b8d781543a6603ca043dffcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfWaves: 10
-  totalEnemies: 15
+  enemiesPerWave: 050000000a00000014000000
   timeBetweenWaves: 5
   timeBetweenEnemySpawns: 1
   enemyPrefabs:
